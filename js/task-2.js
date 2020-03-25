@@ -10,12 +10,14 @@ const ingredients = [
 ];
 
 const list = document.querySelector("#ingredients");
+const fragment = document.createDocumentFragment();
 
-const productToLi = array =>
-  array.forEach(item => {
-    const newLi = document.createElement("li");
-    newLi.textContent = item;
-    return list.appendChild(newLi);
-  });
 
-productToLi(ingredients);
+for (const ingredient of ingredients) {
+  const newLi = document.createElement('li');
+  newLi.innerText = ingredient;
+  fragment.appendChild(newLi)
+}
+
+list.appendChild(fragment)
+
